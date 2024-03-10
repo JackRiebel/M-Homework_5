@@ -1,9 +1,16 @@
 package m.cookingStrategy;
 
-public class BrickOvenCookingStrategy {
+public class BrickOvenCookingStrategy implements ICookingStrategy
+{
+	private final double additional = 10;
 
-	public BrickOvenCookingStrategy() {
-		// TODO Auto-generated constructor stub
+	@Override
+	public void cook(Pizza pizza) {
+		System.out.println("Brick oven cooking method has been selected");
+		int price = pizza.getPrice();
+		pizza.setPrice(price + additional);
+		// TODO Auto-generated method stub
+		
 	}
 
 }
