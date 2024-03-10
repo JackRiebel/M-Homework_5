@@ -1,9 +1,11 @@
 package m.cookingStrategy;
 
-public class ICookingStrategy {
+public interface ICookingStrategy {
 
 	public ICookingStrategy() {
 		// TODO Auto-generated constructor stub
 	}
+
+	public void cook(Pizza pizza);
 
 }
