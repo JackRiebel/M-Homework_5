@@ -8,7 +8,7 @@ public abstract class AbstractPizza {
     protected List<Toppings> toppingList;
     protected double priceWithoutToppings;
     protected double totalPrice;
-    protected int pizzaOrderID;
+    protected static int pizzaOrderID;
     protected static int orderIDCounter = 0;
     protected ICookingStrategy cookingStrategy;
     protected double cookingPrice;
@@ -39,7 +39,7 @@ public abstract class AbstractPizza {
         return totalPrice;
     }
 
-    public int getPizzaOrderID() {
+    public static int getPizzaOrderID() {
         return pizzaOrderID;
     }
 
@@ -66,5 +66,10 @@ public abstract class AbstractPizza {
                 ", cookingPrice=" + cookingPrice +
                 '}';
     }
+
+	public void setPizzaOrderID(int pizzaOrderID2) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
