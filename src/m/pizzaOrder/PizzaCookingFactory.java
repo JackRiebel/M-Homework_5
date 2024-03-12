@@ -10,7 +10,7 @@ import m.pizza.PizzaType;
 public class PizzaCookingFactory {
 	
 	public AbstractPizza createPizza(PizzaType pizzaType) {
-		AbstractPizza pizza = null;
+		AbstractPizza pizza;
 		
 		switch (pizzaType) {
 			case HAWAIIAN:
