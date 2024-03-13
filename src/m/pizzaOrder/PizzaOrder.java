@@ -17,7 +17,6 @@ public class PizzaOrder {
 
 	public PizzaOrder() {
 		pizzaOrderList = new ArrayList<>();
-		
 	}
 	
 	// printListOfToppingsByPizzaOrderID Method
@@ -27,11 +26,11 @@ public class PizzaOrder {
 					List<Toppings> toppings = pizza.getToppingList();
 					System.out.println("Toppings for Order ID " + orderID);
 					for (Toppings topping : toppings) {
-						System.out.println(topping.name());
+						System.out.println(toppings);
 					}
 				}
+				System.out.println("No pizza with the Order ID " + orderID + " has been found");
 			}
-			System.out.println("No pizza with the Order ID " + orderID + " has been found");
 		}
 	
 	
@@ -43,7 +42,7 @@ public class PizzaOrder {
 	
 	public AbstractPizza getPizzaByOrderID(int orderID) {
 		for (AbstractPizza pizza : pizzaOrderList) {
-			if (pizza.getPizzaOrderID() == orderID) {
+			if (AbstractPizza.getPizzaOrderID() == orderID) {
 				return pizza;
 			}
 		}
@@ -64,11 +63,10 @@ public class PizzaOrder {
 					} else {
 						pizza.getToppingList().add(toppings);
 						pizza.updatePizzaPrice();
-						return true;
 					}
 				}
 			}
-			return true;
+			return false;
 		}
 	
 		
@@ -79,7 +77,6 @@ public class PizzaOrder {
 				if (pizza.getToppingList().contains(toppings)) {
 					pizza.getToppingList().remove(toppings);
 					pizza.updatePizzaPrice();
-					return true;
 				} else {
 					return false;
 				}
@@ -110,8 +107,8 @@ public class PizzaOrder {
 	
 	public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType) {
 		for (AbstractPizza pizza : pizzaOrderList) {
-			if (pizza.getPizzaOrderID() == orderID) {
-				pizza.cook()
+			if (AbstractPizza.getPizzaOrderID() == orderID) {
+				pizza.setCookingStrategy(cookingStrategy);
 			}
 		}
 		
