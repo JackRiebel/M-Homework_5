@@ -7,6 +7,7 @@ import m.cookingStrategy.CookingStyleType;
 import m.cookingStrategy.ICookingStrategy;
 import m.pizza.AbstractPizza;
 import m.pizza.PizzaType;
+import m.pizza.Toppings;
 
 public class PizzaOrder {
 	
@@ -18,6 +19,21 @@ public class PizzaOrder {
 		pizzaOrderList = new ArrayList<>();
 		
 	}
+	
+	// printListOfToppingsByPizzaOrderID Method
+		public void printListOfToppingsByPizzaOrderID(int orderID) {
+			for (AbstractPizza pizza : pizzaOrderList) {
+				if (AbstractPizza.getPizzaOrderID() == orderID) {
+					List<Toppings> toppings = pizza.getToppingList();
+					System.out.println("Toppings for Order ID " + orderID);
+					for (Toppings topping : toppings) {
+						System.out.println(topping.name());
+					}
+				}
+			}
+			System.out.println("No pizza with the Order ID " + orderID + " has been found");
+		}
+	
 	
 	public void printPizzaOrderCart(int orderID) {
 		for (AbstractPizza pizza : pizzaOrderList) {
@@ -36,6 +52,39 @@ public class PizzaOrder {
 	
 	public boolean addPizzaToCart(PizzaType pizzaType) {
 		
+		return false;
+	}
+	
+	// addNewToppingsToPizza Method
+		public boolean addNewToppingsToPizza(int orderID, Toppings toppings) {
+			for (AbstractPizza pizza : pizzaOrderList) {
+				if (AbstractPizza.getPizzaOrderID() == orderID) {
+					if (pizza.getToppingList().contains(toppings)) {
+						return false;
+					} else {
+						pizza.getToppingList().add(toppings);
+						pizza.updatePizzaPrice();
+						return true;
+					}
+				}
+			}
+			return true;
+		}
+	
+		
+	//removeToppingsFromPizza Method
+	public boolean removeToppingsFromPizza(int orderID, Toppings toppings) {
+		for (AbstractPizza pizza : pizzaOrderList) {
+			if (AbstractPizza.getPizzaOrderID() == orderID) {
+				if (pizza.getToppingList().contains(toppings)) {
+					pizza.getToppingList().remove(toppings);
+					pizza.updatePizzaPrice();
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
 		return false;
 	}
 	
@@ -69,5 +118,6 @@ public class PizzaOrder {
 		
 		return false;
 	}
+	
 
 }
