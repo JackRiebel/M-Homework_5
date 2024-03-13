@@ -3,13 +3,25 @@ import m.pizzaOrder.PizzaOrder;
 public class Main {
 	
 public static void main(String[] args) {
-	
-// Instantiate a pizzaOrder, perform operations based on the requirements.
+//Instantiate New Pizza
 PizzaOrder order = new PizzaOrder();
 	
-// Adds pizzas to the cart, selects cooking strategies for the pizzas in the cart,
-//prints pizza order cart. Calls checkout to calculate the bill, throws exception if
-//triggered.
-// TODO
+//Adds pizza to cart
+order.addPizzaToCart(null);
+	
+//Select cooking operation for pizza
+order.selectCookingStrategyByPizzaOrderID(0, null);
+
+//Prints pizza in cart function
+order.printPizzaOrderCart(0);
+
+//checkout function
+try {
+	order.Checkout();
+} catch (Exception e) {
+	System.out.println("Error: Please try again");
+	e.printStackTrace();
 }
+
+	
 }
