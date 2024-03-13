@@ -39,6 +39,10 @@ public abstract class AbstractPizza {
         return totalPrice;
     }
 
+     public void setTotalPrice(double newTotal) {
+    	this.totalPrice = newTotal;
+    }
+
     public static int getPizzaOrderID() {
         return pizzaOrderID;
     }
