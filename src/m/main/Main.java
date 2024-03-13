@@ -10,7 +10,7 @@ PizzaOrder order = new PizzaOrder();
 order.addPizzaToCart(null);
 	
 //Select cooking operation for pizza
-order.selectCookingStrategyByPizzaOrderID(0, null);
+order.selectCookingStrategyByPizzaOrderID(order.getPizzaOrderID(), order.getCookingStrategy());
 
 //Prints pizza in cart function
 order.printPizzaOrderCart(0);
